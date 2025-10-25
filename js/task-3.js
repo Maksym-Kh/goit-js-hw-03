@@ -1,13 +1,24 @@
-function checkForSpam(message) {
-    // задаєм вл ловеркейс для параметра меседж
-    message = message.toLowerCase();
-    // повертаєм тру або форс через метод includes  для 2 спам слів через || щоб по одному перевіряло
-    return message.includes("spam") || message.includes("sale");
+function filterArray(numbers, value) {
+    // задаєм новий пустив масив
+    let newArray = [];
+    // numberElement змінна до якої при кожній ітерації буде записуватись  поточний ел масиву/ numbers  зміна яку перебирають по одному знач
+    for (const numberElement of numbers) {
+// якщо ел змінної більший за значення 
+        if (numberElement > value) {
+            // то додаєм до пустого масиву нове знач
+        newArray.push(numberElement);
+        }
+        // якщо ні то з пустим масивом нічого не робим 
+         else {
+        newArray;
+        }
+        
+    }
+//    повертаєм в консоль
+    return newArray;
 }
-console.log(checkForSpam("Latest technology news")); // false
-console.log(checkForSpam("JavaScript weekly newsletter")); // false
-console.log(checkForSpam("Get best sale offers now!")); // true
-console.log(checkForSpam("Amazing SalE, only tonight!")); // true
-console.log(checkForSpam("Trust me, this is not a spam message")); // true
-console.log(checkForSpam("Get rid of sPaM emails. Our book in on sale!")); // true
-console.log(checkForSpam("[SPAM] How to earn fast money?")); // true
+console.log(filterArray([1, 2, 3, 4, 5], 3)); // [4, 5]
+console.log(filterArray([1, 2, 3, 4, 5], 4)); // [5]
+console.log(filterArray([1, 2, 3, 4, 5], 5)); // []
+console.log(filterArray([12, 24, 8, 41, 76], 38)); // [41, 76]
+console.log(filterArray([12, 24, 8, 41, 76], 20)); // [24, 41, 76]
